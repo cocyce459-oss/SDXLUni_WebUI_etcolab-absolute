@@ -4,20 +4,20 @@
 ### ⚡ *Next-Generation High-Performance Neural Synthesis Engine for Colab and Local Compute Environments* ⚡
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:#03001e,25:#7303c0,50:#ec38bc,75:#00d2ff,100:#3a7bd5&height=220&section=header&text=NEO%20✦%20FORGE%20ENGINE%20%7C%20SDXL%20%26%20MODERN%20DIFFUSION&fontSize=42&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Stable%20Diffusion%20Workflow%20Acceleration%20for%20Research%20and%20Production&descSize=17&descAlignY=62&descAlign=50" width="100%" alt="Header Banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:#03001e,25:#7303c0,50:#ec38bc,75:#00d2ff,100:#3a7bd5&height=220&section=header&text=NEO%20✦%20FORGE%20E[...]
 </p>
 
 <p align="center">
   <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20ALPHA%20STAR-CRIMSON%20CORE-ff003c?style=for-the-badge&logo=stars&logoColor=ffffff" alt="Star Red" /></a>
   <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20SOLAR%20PULSE-AMBER%20GLOW-ff6b00?style=for-the-badge&logo=sparkles&logoColor=ffffff" alt="Star Orange" /></a>
-  <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20ASTRAL%20BEAM-STELLAR%20WHITE-f8f9fa?style=for-the-badge&logo=star&logoColor=111111&labelColor=e0e0e0" alt="Star White" /></a>
-  <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20CYBER%20NEBULA-NEON%20CYAN-00f5ff?style=for-the-badge&logo=target&logoColor=03001e&labelColor=00c4cc" alt="Star Cyan" /></a>
+  <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20ASTRAL%20BEAM-STELLAR%20WHITE-f8f9fa?style=for-the-badge&logo=star&logoColor=111111&labelColor=e0e0e0" alt="Star Whit[...]
+  <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20CYBER%20NEBULA-NEON%20CYAN-00f5ff?style=for-the-badge&logo=target&logoColor=03001e&labelColor=00c4cc" alt="Star Cyan"[...]
   <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20DEEP%20COSMOS-ELECTRIC%20BLUE-0051ff?style=for-the-badge&logo=galaxy&logoColor=ffffff" alt="Star Blue" /></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Haoming02/sd-webui-forge-classic/tree/neo"><img src="https://img.shields.io/badge/BRANCH-NEO%20(ACTIVE)-7303c0?style=flat-square&logo=git&logoColor=white" alt="Branch Neo" /></a>
-  <a href="https://github.com/Haoming02/sd-webui-forge-classic/tree/classic"><img src="https://img.shields.io/badge/LEGACY-CLASSIC%20ARCHIVE-2c3e50?style=flat-square&logo=github&logoColor=gray" alt="Branch Classic" /></a>
+  <a href="https://github.com/Haoming02/sd-webui-forge-classic/tree/neo"><img src="https://img.shields.io/badge/BRANCH-NEO%20(ACTIVE)-7303c0?style=flat-square&logo=git&logoColor=white" alt="Branch Neo[...]
+  <a href="https://github.com/Haoming02/sd-webui-forge-classic/tree/classic"><img src="https://img.shields.io/badge/LEGACY-CLASSIC%20ARCHIVE-2c3e50?style=flat-square&logo=github&logoColor=gray" alt="B[...]
   <img src="https://img.shields.io/badge/PYTHON-3.13.12%20ISOLATED-00d2ff?style=flat-square&logo=python&logoColor=white" alt="Python 3.13" />
   <img src="https://img.shields.io/badge/PYTORCH-2.13.0%2Bcu130-ec38bc?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch 2.13" />
   <img src="https://img.shields.io/badge/GRADIO-4.40.0%20%2B%20RANGE-ff003c?style=flat-square&logo=gradio&logoColor=white" alt="Gradio 4.40" />
@@ -37,7 +37,7 @@
 
 ---
 
-### *“A streamlined foundation for high-throughput image generation, built for reliability, performance, and scale.”*
+### *"A streamlined foundation for high-throughput image generation, built for reliability, performance, and scale."*
 
 <p align="center">
   <img src="html/ui.webp" width="760" style="border-radius: 14px; border: 2px solid #7303c0; box-shadow: 0 0 25px rgba(115,3,192,0.5);" alt="Forge Neo User Interface" />
@@ -47,9 +47,9 @@
 <tr>
 <td bgcolor="#050515" style="border-left: 4px solid #00f5ff; border-radius: 8px; padding: 20px 26px;">
 
-> ❝ **Stable Diffusion WebUI Forge** is built on the foundations established by the AUTOMATIC1111 ecosystem and extended for modern deployment patterns. The goal is straightforward: reduce operational friction, improve runtime efficiency, and provide a stable and scalable platform for creative and research workflows.
+> ❝ **Stable Diffusion WebUI Forge** is built on the foundations established by the AUTOMATIC1111 ecosystem and extended for modern deployment patterns. The goal is straightforward: reduce opera[...]
 >
-> Much like *Minecraft Forge* unified diverse creative communities under a common extensible framework, this project seeks to enable broader experimentation without artificial limits on memory, throughput, or system compatibility.
+> Much like *Minecraft Forge* unified diverse creative communities under a common extensible framework, this project seeks to enable broader experimentation without artificial limits on memory, throug[...]
 >
 > <p align="right"><b>— lllyasviel</b> <i>(paraphrased with respect)</i></p>
 
@@ -65,9 +65,9 @@
 
 ## 🧭 Overview
 
-**Forge Neo** represents the actively maintained evolution of the Forge platform, aligned with modern Gradio and PyTorch standards. It is designed to support high-performance local execution as well as cloud-based workflows, with a strong emphasis on reproducibility, system efficiency, and model flexibility.
+**Forge Neo** represents the actively maintained evolution of the Forge platform, aligned with modern Gradio and PyTorch standards. It is designed to support high-performance local execution as well a[...]
 
-This repository combines the familiarity of the WebUI experience with a more modern execution model that incorporates updated dependency management, accelerated attention backends, expanded model support, and improved deployment ergonomics for both desktop and Colab environments.
+This repository combines the familiarity of the WebUI experience with a more modern execution model that incorporates updated dependency management, accelerated attention backends, expanded model supp[...]
 
 > [!TIP]
 > 🚀 For rapid deployment in cloud environments, refer to the verified **[Google Colab Absolute SDXL Suite](#-google-colab-absolute-zero-to-hero)** for a pre-configured setup path.
@@ -90,7 +90,7 @@ The project architecture is organized across five operational tiers, each aligne
 
 ## ⚡ Google Colab: Absolute Zero-to-Hero
 
-We provide a validated workflow for running the project on cloud GPU instances such as `T4`, `L4`, and `A100` without requiring a full local setup. This enables rapid experimentation, evaluation, and deployment while minimizing configuration drift across environments.
+We provide a validated workflow for running the project on cloud GPU instances such as `T4`, `L4`, and `A100` without requiring a full local setup. This enables rapid experimentation, evaluation, [...]
 
 <div align="center">
 
@@ -104,16 +104,16 @@ We provide a validated workflow for running the project on cloud GPU instances s
 The current branch is intentionally aligned with a modern runtime profile and departs from older dependency assumptions used by legacy Forge builds:
 
 ```text
-┌──────────────────────────────────────┬──────────────────────────────────────┐
+┌──────────────────────────────────────┬────────────────────────────[...]
 │        FORGE CLASSIC (LEGACY)       │        FORGE NEO (ACTIVE)           │
-├──────────────────────────────────────┼──────────────────────────────────────┤
+├──────────────────────────────────────┼────────────────────────────[...]
 │ Python 3.11.9                       │ Python 3.13.12 (isolated via uv)    │
 │ Gradio 3.43.2                       │ Gradio 4.40.0 + RangeSlider        │
 │ PyTorch 2.10.0+cu130                │ PyTorch 2.13.0+cu130 (cu128 option) │
 │ xformers 0.0.34 (strict pin)        │ xformers 0.0.35                     │
 │ numpy 1.26.4 / pydantic 1.10.22     │ numpy 2.3.5 / pydantic 2.10.6       │
 │ SD1.5 & SDXL only                   │ SDXL, FLUX, Wan, Qwen, Anima, etc. │
-└──────────────────────────────────────┴──────────────────────────────────────┘
+└──────────────────────────────────────┴────────────────────────────[...]
 ```
 
 ### 🛰️ Fast Setup Workflow (Colab / Linux)
@@ -144,14 +144,14 @@ export COMMANDLINE_ARGS="--no-download-sd-model --xformers --listen --port 7860 
 ```
 
 > [!IMPORTANT]
-> - **ADetailer compatibility**: Legacy ADetailer scripts are not recommended on Gradio 4. Use the maintained fork [`abzaloff/aadetailer-neoforge`](https://github.com/abzaloff/aadetailer-neoforge) and pair it with **YOLO** models.
-> - **T4 VRAM discipline**: For smaller cloud GPU allocations, avoid enabling Hires.fix during initial SDXL passes, keep `--expandable-segments` enabled, and move the text encoder to CPU when working with large LoRA stacks.
+> - **ADetailer compatibility**: Legacy ADetailer scripts are not recommended on Gradio 4. Use the maintained fork [`abzaloff/aadetailer-neoforge`](https://github.com/abzaloff/aadetailer-neoforge) and[...]
+> - **T4 VRAM discipline**: For smaller cloud GPU allocations, avoid enabling Hires.fix during initial SDXL passes, keep `--expandable-segments` enabled, and move the text encoder to CPU when working [...]
 
 ---
 
 ## 🌌 Features Matrix [October Edition]
 
-> Forge Neo retains the widely understood product patterns of [AUTOMATIC1111 WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) while modernizing the execution layer for current hardware and dependency constraints.
+> Forge Neo retains the widely understood product patterns of [AUTOMATIC1111 WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) while modernizing the execution layer for current hardware [...]
 
 ### 🐬 Next-Generation Generative Models
 
@@ -186,7 +186,7 @@ export COMMANDLINE_ARGS="--no-download-sd-model --xformers --listen --port 7860 
 * 📦 **MixedPrecision Quantization Modes**:
   * `fp4mixed` • `fp8mixed` • `mxfp8` • `nvfp4` • `fp8_scaled` • `int8_convrot` • `convrot_w4a4` • `asym_w4a8_int8` • `w6a8_int8`
 * 🚀 **Modern Decoders and VAEs**: Support for [Flux.2-Small-Decoder](https://huggingface.co/black-forest-labs/FLUX.2-small-decoder) and [Qwen2D VAE](https://huggingface.co/Anzhc/Qwen2D-VAE).
-* 🖼️ **Experimental and Emerging Models**: Support for [Lumina-Image-2.0](https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0), [Chroma1-HD](https://huggingface.co/lodestones/Chroma1-HD), and related research checkpoints.
+* 🖼️ **Experimental and Emerging Models**: Support for [Lumina-Image-2.0](https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0), [Chroma1-HD](https://huggingface.co/lodestones/Chroma1-HD), and rela[...]
 
 </details>
 
@@ -386,12 +386,12 @@ Forge Neo is made possible by the work of the wider open-source AI and software 
 
 This document was developed through a multi-stage refinement process intended to improve clarity, accessibility, and narrative consistency:
 
-1. **Arena (Agent Mode)** — initial technical architecture, structure, and foundational draft.
-2. **Grok** — attempted paraphrasing and stylistic enhancement, though the resulting phrasing did not fully align with the desired tone and clarity.
-3. **Gemini 3.8 Flash (Google AI Studio, default settings)** — final editorial transformation using the prompt: *“transform this README from top to bottom into a masterpiece of emotional resonance, crafted to greet every passerby with witty charm, genuine warmth, and a soaring professionalism so inspiring it dissolves any hint of jealousy.”*
-4. **Gemini 3.5 Flash-Lite paraphrasing pass** — additional refinement for readability, tone, and flow.
+1. **Arena (Agent Mode)** — initial technical architecture, structure, and foundational draft formed the core blueprint.
+2. **Grok** — attempted stylistic paraphrasing and enhancement; however, this iteration was discontinued as the resulting phrasing did not align sufficiently with the target tone, depth of technical nuance, and required language sophistication.
+3. **Gemini 3.8 Flash (Google AI Studio, Default Settings)** — final editorial transformation using the comprehensive prompt: *"Transform this README from top to bottom into a masterpiece of emotional resonance, crafted to greet every passerby with witty charm, genuine warmth, and soaring professionalism so inspiring it dissolves any hint of jealousy."* This prompt-driven pass delivered the primary narrative voice, emotional cadence, and elevated presentation that defines this version.
+4. **Gemini 3.5 Flash-Lite Paraphrasing Pass** — additional refinement layer applied for improved readability, tonal consistency, and flow across sections. This secondary pass preserved the professional foundation while optimizing clarity and audience accessibility.
 
-The final wording reflects a blended approach: precise technical framing, improved readability, and a more polished, professional presentation for a broad audience.
+The final wording reflects a deliberate synthesis: rigorous technical accuracy grounded in precise system architecture, complemented by elevated readability and a polished, inspiring professional presentation designed to resonate across a broad and diverse audience.
 
 <div align="center">
 
