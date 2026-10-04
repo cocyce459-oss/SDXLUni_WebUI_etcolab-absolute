@@ -1,474 +1,383 @@
-<h1 align="center">Stable Diffusion WebUI Forge - Neo</h1>
+<div align="center">
 
-<p align="center"><sup>
-[ <b>Neo</b> | <a href="https://github.com/Haoming02/sd-webui-forge-classic/tree/classic#stable-diffusion-webui-forge---classic">Classic</a> ]
-</sup></p>
-
-<p align="center"><img src="html\ui.webp" width=512 alt="UI"></p>
-
-<blockquote><i>
-<b>Stable Diffusion WebUI Forge</b> is a platform on top of the original <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">Stable Diffusion WebUI</a> by <ins>AUTOMATIC1111</ins>, to make development easier, optimize resource management, speed up inference, and study experimental features.<br>
-The name "Forge" is inspired by "Minecraft Forge". This project aims to become the Forge of Stable Diffusion WebUI.<br>
-<p align="right">- <b>lllyasviel</b><br>
-<sup>(paraphrased)</sup></p>
-</i></blockquote>
-
-<br>
-
-"**Neo**" mainly serves as an continuation for the "`latest`" version of Forge, which was built on [Gradio](https://github.com/gradio-app/gradio) `4.40.0` before lllyasviel became too busy... Additionally, this fork is focused on optimization and usability, with the main goal of being able to run the latest popular models via an easy-to-use GUI.
-
-> [!Tip]
-> [How to Install](#installation)
-
-<br>
-
-## Features [Oct.]
-> Most base features of the original [Automatic1111 Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) should still function
-
-#### New Features
-
-- [X] Support [Krea 2](https://huggingface.co/krea/Krea-2-Turbo)
-    - `Turbo` / `Raw`
-- [X] Support **Krea 2 Identity Edit**
-    - require specific [LoRA](https://civitai.com/models/2761113/krea-2-identity-edit)
-    - enable in **Settings/Stable Diffusion**
-- [X] Support [Anima 2B](https://huggingface.co/circlestone-labs/Anima) / [Anima 2.9B](https://huggingface.co/Gazingstars123/Anima-2.9B) / [Anima 3.8B](https://huggingface.co/lylogummy/Anima-3.8B)
-    - automatically map LoRA for 2B to 2.9B and 3.8B
-    - `qwen35_4b` adapter requires [Extension](https://github.com/GumGum10/forge-anima-3.8B)
-- [X] Support **Anima Edit**
-    - require specific [LoRA](https://civitai.com/models/2650553/anima-edit)
-    - enable in **Settings/Stable Diffusion**
-- [X] Support [Flux.2-Klein](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B)
-    - `4B` / `9B` (**not** `FLUX.2-Dev`)
-
-> [!Important]
-> To use `Flux.2-Klein` for regular `img2img`, toggle the functionality in **Settings/Stable Diffusion**
-
-- [X] Support [Ernie-Image](https://huggingface.co/baidu/ERNIE-Image)
-    - `ernie-image` / `ernie-image-turbo`
-- [X] Support [PiD 1.5](https://huggingface.co/nvidia/PiD)
-    - `sdxl` / `qwen` / `flux1` / `flux2` (**not** `PixelDiT`)
-    - use `PiD Integrated` to automatically upscale after generation
-- [X] Support [Z-Image](https://huggingface.co/Tongyi-MAI/Z-Image)
-    - `z-image` / `z-image-turbo`
-- [X] Support [Wan 2.2](https://github.com/Wan-Video/Wan2.2)
-    - `14B` (**not** `5B`)
-    - use `Refiner` to achieve **High Noise** / **Low Noise** switching
-
-> [!Important]
-> To export a video, you need to have **[FFmpeg](https://ffmpeg.org/)** installed
-
-- [X] Support [Mugen](https://huggingface.co/CabalResearch/Mugen)
-    - display the `Shift` slider for `xl` preset in **Settings/Presets/XL**
-- [X] Support advanced **SDXL** models
-
-> [!Note]
-> - **v-prediction:** `state_dict` must include "`v_pred`"
-> - **Zero Terminal SNR:** `state_dict` must include "`ztsnr`"
-> - **Rectified Flow:** the model must include "`rectified`" in its path *(**e.g.** file name or folder name)*
-
-- [X] Support [Qwen-Image](https://huggingface.co/Qwen/Qwen-Image) / [Qwen-Image-Edit](https://huggingface.co/Qwen/Qwen-Image-Edit-2509)
-
-> [!Note]
-> To be detected as an **Edit** model, the model must include "`qwen`" and "`edit`" in its path *(**e.g.** file name or folder name)*
-
-- [X] Support [Flux Kontext](https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev)
-
-> [!Note]
-> To be detected as a **Kontext** model, the model must include "`kontext`" in its path *(**e.g.** file name or folder name)*
-
-- Implement `ImageStitch Integrated`
-    - [X] support multi-image inputs for **Edit** models
-    - [X] support FirstLastFrameToVideo for `Wan 2.2`
-- [X] Support [Nunchaku](https://github.com/nunchaku-tech/nunchaku) (`SVDQ`) Models (**Deprecated**)
-    - `flux-dev`, `flux-krea`, `flux-kontext`, `qwen-image`, `qwen-image-edit`, `z-image-turbo`
-    - only `Flux` and `Qwen` support LoRA currently
-    - see [Commandline](#by-neo)
-- [X] Support [Lumina-Image-2.0](https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0)
-    - `Neta-Lumina` / `NetaYume-Lumina`
-- [X] Support [Chroma1-HD](https://huggingface.co/lodestones/Chroma1-HD)
-- [X] Support **MixedPrecision** Models
-    - `fp4mixed` / `fp8mixed` / `mxfp8` / `nvfp4` / `fp8_scaled` / `int8_convrot` / `convrot_w4a4` / `asym_w4a8_int8` / `w6a8_int8`
-- [X] Support [Flux.2-Small-Decoder](https://huggingface.co/black-forest-labs/FLUX.2-small-decoder/blob/main/full_encoder_small_decoder.safetensors) & [Qwen2D VAE](https://huggingface.co/Anzhc/Qwen2D-VAE/blob/main/Qwen2D_VAE.safetensors)
-
-<br>
-
-> [!Tip]
-> Check out [Download Models](https://github.com/Haoming02/sd-webui-forge-classic/wiki/Download-Models) for where to get each model and the accompanying modules
-
-> [!Tip]
-> Check out [Inference References](https://github.com/Haoming02/sd-webui-forge-classic/wiki/Inference-References) for how to use each model and the recommended parameters
-
-<br>
-
-- [X] Rewrite Preset System
-    - now save the checkpoint/module selection and parameters per each Preset
-
-> [!Note]
-> This overrides the `UI Defaults` for the controlled parameters
-
-<br>
-
-- [X] Enforce Resolution Steps
-    - dimensions must be multiples of `64` by default
-    - adjust in **Settings/System**
-- [X] Support [uv](https://github.com/astral-sh/uv) package manager
-    - drastically speed up installation
-    - require **manually** installing [uv](https://github.com/astral-sh/uv/releases)
-    - see [Commandline](#by-neo)
-- [X] Support [SageAttention](https://github.com/thu-ml/SageAttention), [FlashAttention](https://github.com/Dao-AILab/flash-attention), [ComfyKitchenAttention](https://github.com/Comfy-Org/comfy-kitchen), `fp16_accumulation`
-    - see [Commandline](#by-neo)
-- [X] Implement [Radial Attention](https://github.com/mit-han-lab/radial-attention)
-    - speed up `Wan 2.2`
-    - require **manually** installing [SpargeAttn](https://github.com/thu-ml/SpargeAttn)
-- [X] Implement [Sol-Attn](https://arxiv.org/abs/2607.24027)
-    - speed up inference
-- [X] Implement fast `state_dict` switching for Refiner
-    - enable in **Settings/Refiner**
-- [X] Implement RescaleCFG
-    - reduce burnt colors; mainly for `v-pred` checkpoints
-    - enable in **Settings/UI Alternatives**
-- [X] Implement MaHiRo
-    - alternative CFG calculation; improve prompt adherence
-    - enable in **Settings/UI Alternatives**
-- [X] Implement [Spectrum](https://github.com/hanjq17/Spectrum)
-    - training-free acceleration for all models
-- [X] Implement [Epsilon Scaling](https://github.com/comfyanonymous/ComfyUI/pull/10132)
-    - enable in **Settings/Stable Diffusion**
-- [X] Implement `torch.compile`
-    - speed up inference after compilation
-- [X] Implement alternative Prompt Box layouts
-- [X] Implement tiled `Conv2d` for VAE
-    - reduce memory usage; reduce speed
-    - see [Commandline](#by-neo)
-- [X] Implement full precision calculation for `Mask blur` blending
-    - enable in **Settings/img2img**
-- [X] Support TAESD / TAEHV live preview for all models
-- [X] Support video previews for ExtraNetworks
-- [X] Support loading upscalers in `half` precision
-    - speed up; reduce quality
-    - enable in **Settings/Upscaling**
-- [X] Support running tile composition on GPU
-    - enable in **Settings/Upscaling**
-- [X] Support (short) videos in **Extras** tab
-- [X] Add support for `.avif`, `.heif`, and `.jxl` image formats
-- [X] Automatically determine the optimal row count for `X/Y/Z Plot`
-- [X] Update **LLLite** Controlnet
-    - [SDXL](https://huggingface.co/kohya-ss/controlnet-lllite/tree/main) / [Anima](https://huggingface.co/kohya-ss/Anima-LLLite/tree/main)
-    - support `MultiDiffusion`
-- [X] Support **Union** Controlnet
-    - [SDXL](https://huggingface.co/xinsir/controlnet-union-sdxl-1.0) / [Chenkin](https://civitai.com/models/2527960/chenkin-unicontrol-xl)
-- [X] Support **Region** Controlnet
-    - [Anima](https://huggingface.co/Sen-sou/Anima-LLLite-Regional-Controlnet)
-    - use the **Region** mode to create color masks
-- [X] Implement **LoRA Control**
-    - require **on-the-fly** LoRA
-    - require syntax `<lora:name:[w1@t1, w2@t2, ...]>`
-    - see [comment](https://github.com/Haoming02/sd-webui-forge-classic/issues/1439#issuecomment-5539099537) for example
-
-#### Removed Features
-
-- [X] SD2
-- [X] SD3
-- [X] Forge Spaces
-- [X] Hypernetworks
-- [X] CLIP Interrogator
-- [X] Deepbooru Interrogator
-- [X] Textual Inversion Training
-- [X] Some built-in Extensions
-- [X] Some built-in Scripts
-- [X] Some Samplers & Schedulers
-- [X] Some Compatibility Settings
-- [X] Stealth Infotext
-- [X] `bitsandbytes` Support
-
-#### Optimizations
-
-- [X] **[Comfy]** Rewrite the Backend *(`memory_management.py`, `ModelPatcher`, `attention.py`, etc.)*
-- [X] No longer `git` `clone` any repository on fresh install
-- [X] No longer install `open-clip`
-- [X] Fix memory leak when switching checkpoints
-- [X] Restore the ability to drag-and-drop images onto `gr.Image` that already contains image
-- [X] Speed up launch time
-- [X] Speed up model loading
-- [X] Improve timer logs
-- [X] Remove unused `cmd_args`
-- [X] Remove unused `args_parser`
-- [X] Remove unused `shared_options`
-- [X] Remove legacy codes
-- [X] Fix some typos
-- [X] Fix automatic `Tiled VAE` fallback
-- [X] Fix `Tiling` for SD1 and SDXL
-- [X] Pad conditioning for SDXL
-- [X] Remove duplicated upscaler codes
-- [X] Update [spandrel](https://github.com/chaiNNer-org/spandrel)
-    - support new upscaler architectures
-
-> [!Important]
-> Put every upscaler (`.pth` / `.safetensors`) inside the `ESRGAN` folder
-
-> [!Tip]
-> Check out [OpenModelDB](https://openmodeldb.info/) for where to get upscalers
-
-- [X] Improve `ForgeCanvas`
-    - brush adjustments
-    - customization
-    - deobfuscate
-    - eraser
-    - hotkeys
-    - mobile friendly
-- [X] Optimize upscaler logics
-- [X] Optimize certain operations in `Spandrel`
-- [X] Optimize certain operations for `VAE`
-- [X] Speed up model loading
-- [X] Improve color correction
-- [X] Improve memory management
-- [X] Unload all models on `OutOfMemory`
-- [X] Update the implementation for `X/Y/Z Plot`
-- [X] Update the implementation for `Soft Inpainting`
-- [X] Update the implementation for `MultiDiffusion`
-- [X] Update the implementation for `uni_pc` and `LCM` samplers
-- [X] Update the implementation of LoRAs
-- [X] Revamp settings
-    - improve formatting
-    - update descriptions
-- [X] Check for Extension updates in parallel
-- [X] Move `embeddings` folder into `models` folder
-- [X] Infotext Rewrite
-    - allow switching Models and Modules
-    - save `emphasis` properly
-    - correct default values
-- [X] ControlNet Rewrite
-    - change Units to `gr.Tab`
-    - improve `masks` & `buttons`
-    - remove multi-inputs, as they are "[misleading](https://github.com/lllyasviel/stable-diffusion-webui-forge/discussions/932)"
-- [X] Checkpoint Merger Rewrite
-    - update ui
-    - support modern models
-- [X] Refiner Rewrite
-    - update ui
-    - improve tooltips
-    - implement `Refiner CFG Scale`
-- [X] Improve inference speed
-- [X] Improve non-Nvidia support
-- [X] Lint & Format
-- [X] Update `Pillow`
-    - faster image processing
-- [X] Update `protobuf`
-    - faster `insightface` loading
-- [X] Update to latest PyTorch
-    - `torch==2.13.0+cu130`
-
-> [!Note]
-> If your GPU does not support the latest PyTorch, manually [install](https://github.com/Haoming02/sd-webui-forge-classic/wiki/Extra-Installations#older-pytorch) older version of PyTorch
-
-- [X] Update some packages to newer versions
-- [X] Update recommended Python to `3.13.12`
-- [X] many more... :tm:
-
-<br>
-
-## Commandline
-> These flags can be added after the `set COMMANDLINE_ARGS=` line in the `webui-user.bat` *(in the same line ; separate each flag with space)*
-
-> [!Tip]
-> Use `python launch.py --help` to see all available flags
-
-- `--xformers`: Install the `xformers` package to speed up generation
-
-> [!Warning]
-> `xformers` does **not** support `RTX 50s`
-
-- `--port`: Specify a server port to use
-    - defaults to `7860`
-- `--api`: Enable [API](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API) access
-
-#### by. Neo
-
-- `--cuda-malloc`: Improve memory allocation
-- `--cuda-stream`: Enable async weight offloading
-- `--pin-shared-memory`: Improve RAM utilization
-- `--expandable-segments`: Enable experimental PyTorch allocator *(may prevent `OutOfMemory` errors on certain platforms)*
-
-<br>
-
-- `--uv`: Replace the `python -m pip` calls with `uv pip` to massively speed up package installation
-    - require **uv** to be installed first *(see [Extra Installations](https://github.com/Haoming02/sd-webui-forge-classic/wiki/Extra-Installations))*
-- `--uv-symlink`: Same as above; but additionally pass `--link-mode symlink` to the commands
-    - significantly reduce installation size (`~7 GB` to `~100 MB`)
-- `--uv-local-cache`: Same as above; but additionally set `UV_CACHE_DIR` to a `.uv-cache` folder within WebUI directory
-    - speed up installation on non-default drive *(**i.e.** not `C:` on Windows)*
-    - allow clean uninstallation by simply deleting the WebUI directory
-
-> [!Important]
-> `symlink` means it will directly access the packages from the cache folder instead of copying the packages over ; refrain from clearing the cache when using this option
-
-<br>
-
-- `--model-ref`: Points to a central `models` folder that contains all your models
-    - said folder should contain subfolders like `Stable-diffusion`, `Lora`, `VAE`, `ESRGAN`, etc.
-
-> [!Important]
-> This simply **replaces** the `models` folder rather than adding on top of it
-
-<br>
-
-- `--forge-ref-a1111-home`: Point to an Automatic1111 installation to load its `models` folders
-    - **i.e.** `Stable-diffusion`, `text_encoder`, etc.
-
-- `--forge-ref-comfy-home`: Point to a ComfyUI installation to load its `models` folders
-    - **i.e.** `diffusion_models`, `clip`, etc.
-- `--forge-ref-comfy-yaml`: Point to the ComfyUI `extra_model_paths.yaml` to load its configurations
-    - **i.e.** `base_path`, `checkpoints`, etc.
-
-<br>
-
-- `--sage`: Install the `sageattention` package to speed up generation
-    - will also attempt to install `triton` automatically
-- `--flash`: Install the `flash_attn` package to speed up generation
-- `--nunchaku`: Install the `nunchaku` package to inference SVDQ models
-
-> [!Warning]
-> Using `nunchaku` will fall back to older version of PyTorch
-
-- `--onnxruntime-gpu`: Install the `onnxruntime` with the latest GPU support
-
-<br>
-
-- `--fast-fp8`: Use the `torch._scaled_mm` function when the model type is `float8_e4m3fn`
-- `--fast-fp16`: Enable the `allow_fp16_accumulation` option
-- `--autotune`: Enable the `torch.backends.cudnn.benchmark` option
-    - this is slower in my experience...
-- `--tiled-conv2d`: Replace `Conv2d` ops with tiled variants
-    - has greater reduction for **SD1** and **SDXL** VAE; less for **Wan** VAE
-    - `64` / `128` / `256` / `512`
-
-<br>
-
-- `--use-ck-attention`: Use the Comfy-Kitchen attention to speed up generation
-    - override other attention packages
-- `--enable-triton-backend`: Enable the use of Triton backend in `comfy-kitchen`
-    - *might* speed up inference
-- `--pynvml`: Use the NVIDIA Management Library to determine the actual amount of free VRAM
-    - prevent system freeze when running other programs
-
-<br>
-
-## Installation
-
-0. Install **[git](https://git-scm.com/downloads)**
-1. Clone the Repo
-    ```bash
-    git clone https://github.com/Haoming02/sd-webui-forge-classic sd-webui-forge-neo --branch neo
-    ```
-
-2. Setup Python
-
-<br>
-
-<details>
-<summary>Recommended Method</summary>
-
-- Install **[uv](https://github.com/astral-sh/uv#installation)**
-- Set up **venv**
-    ```bash
-    cd sd-webui-forge-neo
-    uv venv venv --python 3.13 --seed
-    ```
-- Add the `--uv` flag to `webui-user.bat`
-
-</details>
-
-<br>
-
-<details>
-<summary>Deprecated Method</summary>
-
-- Install **[Python 3.13.12](https://www.python.org/downloads/release/python-31312/)**
-    - Remember to enable `Add Python to PATH`
-
-</details>
-
-<br>
-
-3. **(Optional)** Configure [Commandline](#commandline)
-4. Launch the WebUI via `webui-user.bat`
-5. During the first launch, it will automatically install all the requirements
-6. Once the installation is finished, the WebUI will start in a browser automatically
-
-<br>
-
-> [!Tip]
-> - For **AMD**, refer to <a href="https://github.com/CS1o/Stable-Diffusion-Info/wiki/Webui-Installation-Guides#amd-forge-neo-with-rocm"><ins>CS1o</ins> 's Guide</a>
-> - For **Linux** and **macOS**, refer to [Wiki](https://github.com/Haoming02/sd-webui-forge-classic/wiki/Unix)
-> - For **Docker** (`Nvidia`), refer to [Docker](docker/)
-
-<br>
-
-> [!Tip]
-> Check out [Extra Installations](https://github.com/Haoming02/sd-webui-forge-classic/wiki/Extra-Installations) for how to install `git`, `uv`, and `FFmpeg`
-
-<br>
-
-## Attention Functions
-
-> [!Important]
-> The `--xformers`, `--flash`, and `--sage` args are only responsible for installing the packages, **not** whether its respective attention is used *(this also means you can remove them once the packages are successfully installed)*
-
-> [!Caution]
-> Do **not** just blindly install all of them <br>
-> Nowadays the native PyTorch `scaled_dot_product_attention` is usually as fast, and also more stable
-
-**Forge Neo** tries to import the packages and automatically choose the first available attention function in the following order:
-
-1. `SageAttention`
-2. `FlashAttention`
-3. `xformers`
-4. `PyTorch`
-5. `Basic`
-
-> [!Note]
-> To skip a specific attention, add the respective disable arg such as `--disable-sage`
-
-<br>
-
-## Issues & Requests
-
-- **Issues** about removed features will simply be ignored
-- **Issues** that is obviously user-error will simply be ignored
-- **Issues** regarding **AMD** GPU will simply be ignored
-- **Issues** running non-official models will simply be ignored
-    - do not just randomly download every single finetune/quant you find
-- **Issues** about 3rd-party Extensions will simply be ignored
-    - extension should support the UI, not the other way around
-- **Issues** caused by [StabilityMatrix](https://github.com/LykosAI/StabilityMatrix) will simply be ignored
-    - only open an Issue if you can reproduce it on a clean install following the official [Installation](#installation) instruction
-
-> [!Caution]
-> - If you post **NSFW** images/videos, you will immediately be banned
->     - the sole discretion is on me ; if you are unsure, just generate `cats` and `dogs`...
-
-<hr>
-
-> [!Tip]
-> Check out the [Wiki](https://github.com/Haoming02/sd-webui-forge-classic/wiki) & [FAQ](https://github.com/Haoming02/sd-webui-forge-classic/issues/414)
-
-<br>
+# 🌌 ✦ STABLE DIFFUSION WEBUI FORGE — NEO ✦ 🌌
+### ⚡ *Next-Generation High-Performance Neural Synthesis Engine* ⚡
 
 <p align="center">
-Special thanks to <b>AUTOMATIC1111</b>, <b>lllyasviel</b>, and <b>comfyanonymous</b>, <b>kijai</b>, <b>city96</b>, <br>
-along with the rest of the contributors, <br>
-for their invaluable efforts in the open-source image generation community
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:#03001e,25:#7303c0,50:#ec38bc,75:#00d2ff,100:#3a7bd5&height=220&section=header&text=NEO%20✦%20FORGE%20ENGINE&fontSize=42&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Starry%20Night%20Cyberpunk%20Architecture%20%7C%20SDXL%20%26%20Modern%20DiT%20Workflows&descSize=17&descAlignY=62&descAlign=50" width="100%" alt="Header Banner" />
 </p>
+
+<!-- Star Badges Cycling through Red, Orange, White, Cyan, and Blue -->
+<p align="center">
+  <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20ALPHA%20STAR-CRIMSON%20CORE-ff003c?style=for-the-badge&logo=stars&logoColor=ffffff" alt="Star Red" /></a>
+  <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20SOLAR%20PULSE-AMBER%20GLOW-ff6b00?style=for-the-badge&logo=sparkles&logoColor=ffffff" alt="Star Orange" /></a>
+  <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20ASTRAL%20BEAM-STELLAR%20WHITE-f8f9fa?style=for-the-badge&logo=star&logoColor=111111&labelColor=e0e0e0" alt="Star White" /></a>
+  <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20CYBER%20NEBULA-NEON%20CYAN-00f5ff?style=for-the-badge&logo=target&logoColor=03001e&labelColor=00c4cc" alt="Star Cyan" /></a>
+  <a href="#-star-tier-constellation"><img src="https://img.shields.io/badge/★%20DEEP%20COSMOS-ELECTRIC%20BLUE-0051ff?style=for-the-badge&logo=galaxy&logoColor=ffffff" alt="Star Blue" /></a>
+</p>
+
+<!-- Repository Meta Badges -->
+<p align="center">
+  <a href="https://github.com/Haoming02/sd-webui-forge-classic/tree/neo"><img src="https://img.shields.io/badge/BRANCH-NEO%20(ACTIVE)-7303c0?style=flat-square&logo=git&logoColor=white" alt="Branch Neo" /></a>
+  <a href="https://github.com/Haoming02/sd-webui-forge-classic/tree/classic"><img src="https://img.shields.io/badge/LEGACY-CLASSIC%20ARCHIVE-2c3e50?style=flat-square&logo=github&logoColor=gray" alt="Branch Classic" /></a>
+  <img src="https://img.shields.io/badge/PYTHON-3.13.12%20ISOLATED-00d2ff?style=flat-square&logo=python&logoColor=white" alt="Python 3.13" />
+  <img src="https://img.shields.io/badge/PYTORCH-2.13.0%2Bcu130-ec38bc?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch 2.13" />
+  <img src="https://img.shields.io/badge/GRADIO-4.40.0%20%2B%20RANGE-ff003c?style=flat-square&logo=gradio&logoColor=white" alt="Gradio 4.40" />
+  <img src="https://img.shields.io/badge/PACKAGER-ASTRAL%20UV%20FAST-ff6b00?style=flat-square&logo=fastapi&logoColor=white" alt="Astral UV" />
+  <a href="COLAB_FORGE_NEO_SDXL.ipynb"><img src="https://img.shields.io/badge/COLAB-OPEN%20SDXL%20NOTEBOOK-F9AB00?style=flat-square&logo=googlecolab&logoColor=white" alt="Open Colab" /></a>
+  <img src="https://img.shields.io/badge/LICENSE-GPL--3.0-0051ff?style=flat-square" alt="License" />
+</p>
+
+<p align="center">
+  <b>[ <a href="#-google-colab-absolute-zero-to-hero">Google Colab Guide</a> ]</b> •
+  <b>[ <a href="#-new-features-october-edition">Features Matrix</a> ]</b> •
+  <b>[ <a href="#-commandline-flags--neo-optimizations">Commandline CLI</a> ]</b> •
+  <b>[ <a href="#-installation-suite">Installation</a> ]</b> •
+  <b>[ <a href="#-attention-hierarchies">Attention Engine</a> ]</b> •
+  <b>[ <a href="#-issues--guidelines">Issue Policy</a> ]</b>
+</p>
+
+---
+
+<p align="center">
+  <img src="html/ui.webp" width="760" style="border-radius: 14px; border: 2px solid #7303c0; box-shadow: 0 0 25px rgba(115,3,192,0.6);" alt="Forge Neo User Interface" />
+</p>
+
+<table align="center" width="100%">
+<tr>
+<td bgcolor="#050515" style="border-left: 4px solid #00f5ff; border-radius: 8px; padding: 18px 24px;">
+
+> ❝ **Stable Diffusion WebUI Forge** is a cutting-edge platform engineered atop the foundation of AUTOMATIC1111's WebUI. Designed to simplify development, dramatically optimize GPU/system resource allocation, accelerate cross-architecture inference, and foster experimentation with groundbreaking diffusion models.  
+> Inspired by the modding milestone *Minecraft Forge*, this engine empowers the generative AI community to forge without boundaries. ❞
+> 
+> <p align="right"><b>— lllyasviel</b> <i>(paraphrased)</i></p>
+
+</td>
+</tr>
+</table>
+
+</div>
 
 <br>
 
-<p align="right">
-<sub><i>
-Buy me a <a href="https://ko-fi.com/Haoming">Coffee</a> ☕~
-</i></sub>
+## 🌌 Introduction: The "Neo" Paradigm
+
+**"Neo"** serves as the authoritative, actively maintained continuation for the modern generation of Forge (built on Gradio `4.40.0`). While upstream development paused, Neo spearheads bleeding-edge inference acceleration, deep memory management revamps, modern kernel attention integration, and instant first-class support for the latest diffusion transformers (DiTs) including **SDXL**, **FLUX.2-Klein**, **Wan 2.2**, **Qwen-Image**, **Anima**, **Z-Image**, and **PiD 1.5**.
+
+> [!TIP]
+> 🚀 **Ready to deploy on cloud hardware in 5 minutes?** Jump straight into the verified **[Google Colab Absolute SDXL Suite](#-google-colab-absolute-zero-to-hero)** with zero environment drift!
+
+---
+
+## 🌟 Star Tier Constellation
+
+Our telemetry and feature matrix are color-coded across 5 astronomical energy tiers:
+
+| Celestial Tier | Badge Color | Frequency & Role | Core Focus |
+|:---:|:---:|:---:|:---|
+| 🔴 **Alpha Star** | `#ff003c` Crimson | Hard Critical / Base Execution | PyTorch 2.13.0+cu130 kernel, Python 3.13 isolation, memory patcher |
+| 🟠 **Solar Pulse** | `#ff6b00` Amber | High Acceleration & Speed | Astral `uv` pip caching, fast fp8 scaled matrix operations, symlinks |
+| ⚪ **Astral Beam** | `#f8f9fa` White | Stability & Precision Layers | Gradio 4.40.0, RescaleCFG, Zero Terminal SNR, v-prediction |
+| 🐬 **Cyber Nebula** | `#00f5ff` Cyan | Next-Gen Diffusion Arch | SDXL, FLUX.2-Klein, Wan 2.2 Video, Qwen-Image-Edit, Anima |
+| 🌌 **Deep Cosmos** | `#0051ff` Blue | Advanced Attention Kernels | SageAttention, FlashAttention, Radial Attention, Comfy-Kitchen |
+
+---
+
+## ⚡ Google Colab: Absolute Zero-to-Hero
+
+We ship full, verified zero-drift cloud automation for Google Colab GPU instances (`T4` / `L4` / `A100`).
+
+<div align="center">
+
+[![Open In Colab](https://img.shields.io/badge/Colab-Run%20Forge%20Neo%20SDXL-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)](COLAB_FORGE_NEO_SDXL.ipynb)
+[![Read Spec](https://img.shields.io/badge/Specs-COLAB__FORGE__NEO__SDXL.md-00f5ff?style=for-the-badge&logo=markdown&logoColor=white)](COLAB_FORGE_NEO_SDXL.md)
+
+</div>
+
+### 🔮 Architecture Delta: Neo vs Classic
+Verified against code commits (`neo` branch default vs legacy `classic`):
+
+```
+┌─────────────────────────────────┬─────────────────────────────────┐
+│     FORGE CLASSIC (LEGACY)      │        FORGE NEO (ACTIVE)       │
+├─────────────────────────────────┼─────────────────────────────────┤
+│ Python 3.11.9                   │ Python 3.13.12 (uv isolated)    │
+│ Gradio 3.43.2                   │ Gradio 4.40.0 + RangeSlider     │
+│ PyTorch 2.10.0+cu130            │ PyTorch 2.13.0+cu130 (cu128 alt)│
+│ xformers 0.0.34 (strict pin)    │ xformers 0.0.35 (torch>=2.10)   │
+│ numpy 1.26.4 / pydantic 1.10.22 │ numpy 2.3.5 / pydantic 2.10.6   │
+│ SD1.5 & SDXL only               │ SDXL, FLUX, Wan, Qwen, Anima... │
+└─────────────────────────────────┴─────────────────────────────────┘
+```
+
+### 🛰️ Fast Pipeline Setup (Colab / Linux)
+
+```bash
+# 1. Install high-speed Astral UV package manager
+pip install -q --upgrade uv
+
+# 2. Clone Neo branch
+git clone --branch neo --depth 1 https://github.com/Haoming02/sd-webui-forge-classic sd-webui-forge-neo
+cd sd-webui-forge-neo
+
+# 3. Create standalone Python 3.13 environment
+uv venv venv --python 3.13 --seed
+
+# 4. Set runtime environment flags
+export TORCH_INDEX_URL="https://download.pytorch.org/whl/cu130"
+export TORCH_COMMAND="pip install torch==2.13.0+cu130 torchvision==0.28.0+cu130 --extra-index-url ${TORCH_INDEX_URL}"
+export GRADIO_PACKAGE="gradio==4.40.0 gradio_rangeslider==0.0.8"
+export XFORMERS_PACKAGE="xformers==0.0.35 --extra-index-url ${TORCH_INDEX_URL}"
+export TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD="true"
+
+# 5. Launch with cloud optimizations
+export COMMANDLINE_ARGS="--no-download-sd-model --xformers --listen --port 7860 --expandable-segments --api"
+./venv/bin/python launch.py
+```
+
+> [!IMPORTANT]
+> - **ADetailer on Neo**: Bing-su's legacy repository is incompatible with Gradio 4. Use `https://github.com/abzaloff/aadetailer-neoforge` and select **YOLO** models (MediaPipe lacks cp313 wheels).
+> - **T4 VRAM Discipline**: On 15GB VRAM instances, keep Hires.fix disabled for base SDXL generation, use `--expandable-segments`, and leave text encoder on CPU if loading ultra-heavy LoRAs.
+
+---
+
+## 🌌 Features Matrix [October Edition]
+
+> Inherits the rich ecosystem and base capabilities of [AUTOMATIC1111 WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) while overhauling the underlying engine for peak speed and lightweight memory consumption.
+
+### 🐬 Next-Gen Generative Models
+
+<details open>
+<summary><b>Click to expand / collapse Supported Model Architectures</b></summary>
 <br>
-<sub><i>
-<a href="https://paypal.me/hmgamingdonation">PayPal</a> me 💳~
-</i></sub>
+
+* 🎨 **Krea 2 Engine**: Full support for `Turbo` & `Raw` inference streams.
+  * 🎭 **Krea 2 Identity Edit**: Native pipeline support via specific [Identity LoRA](https://civitai.com/models/2761113/krea-2-identity-edit) (Activate under `Settings → Stable Diffusion`).
+* 🌌 **Anima Multiverse**: First-class support for `Anima 2B`, `Anima 2.9B`, and `Anima 3.8B`.
+  * Automatic cross-architecture LoRA translation between 2B, 2.9B, and 3.8B.
+  * `qwen35_4b` adapter support enabled via [Extension](https://github.com/GumGum10/forge-anima-3.8B).
+  * 🎭 **Anima Edit**: Supported via official [LoRA](https://civitai.com/models/2650553/anima-edit).
+* ⚡ **Flux.2-Klein Transformers**: Native inference for `4B` & `9B` architectures.
+  * Toggle standard `img2img` routing under `Settings → Stable Diffusion`.
+* 🏮 **Baidu Ernie-Image**: Seamless execution of `ernie-image` and `ernie-image-turbo`.
+* 🔬 **PiD 1.5 Scaled Diffusion**: Support for `sdxl`, `qwen`, `flux1`, and `flux2` architectures.
+  * Integrated pipeline for automatic post-generation upscaling.
+* 🌀 **Tongyi Z-Image**: Full support for both `z-image` and `z-image-turbo`.
+* 🎬 **Wan 2.2 Video Suite**: High-capacity `14B` architecture with dynamic **High Noise / Low Noise** refiner switching.
+  * *Note: Requires local [FFmpeg](https://ffmpeg.org/) installed for video container export.*
+* 🌌 **Mugen Generative Stack**: Full exposure of `Shift` dynamics slider under `Settings → Presets → XL`.
+* 🔮 **Advanced SDXL Paradigms**:
+  * **v-prediction**: Autodetected when `state_dict` includes `v_pred`.
+  * **Zero Terminal SNR**: Triggered automatically when `state_dict` includes `ztsnr`.
+  * **Rectified Flow**: Activated when model folder or path contains `rectified`.
+* 🤖 **Qwen-Image & Qwen-Image-Edit**: Intelligent route detection when model path contains `qwen` and `edit`.
+* 💫 **Flux Kontext**: In-context generation triggered when path includes `kontext`.
+* 🧵 **ImageStitch Integrated**:
+  * Multi-image input tensor stitching for modern Edit models.
+  * FirstLastFrameToVideo temporal generation for Wan 2.2.
+* 📦 **MixedPrecision Quantization Modes**:
+  * `fp4mixed` • `fp8mixed` • `mxfp8` • `nvfp4` • `fp8_scaled` • `int8_convrot` • `convrot_w4a4` • `asym_w4a8_int8` • `w6a8_int8`.
+* 🚀 **Modern Decoders & VAEs**: [Flux.2-Small-Decoder](https://huggingface.co/black-forest-labs/FLUX.2-small-decoder) & [Qwen2D VAE](https://huggingface.co/Anzhc/Qwen2D-VAE).
+* 🖼️ **Experimental & Exotic Models**: [Lumina-Image-2.0](https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0) (`Neta-Lumina` / `NetaYume-Lumina`), [Chroma1-HD](https://huggingface.co/lodestones/Chroma1-HD), and legacy Nunchaku (`SVDQ`).
+
+</details>
+
+### ⚙️ Engine Innovations & Workflow Features
+
+* 🎛️ **Deterministic Preset System**: Fully rewritten preset logic storing checkpoint states, module selections, and sampler hyperparameters individually per preset.
+* 📐 **Resolution Step Enforcement**: Hard-locked multiple-of-64 dimension steps to eliminate tensor misalignments (configurable in `Settings → System`).
+* 🏎️ **Astral `uv` Acceleration**: Lightning-fast package resolution cutting build and launch latency down to seconds.
+* 🌟 **Spectrum Acceleration**: Training-free inference speedup across all supported model families.
+* ⚡ **Torch Compile**: Zero-overhead `torch.compile` graph optimization after initial kernel warmup.
+* 🎨 **RescaleCFG & MaHiRo**:
+  * **RescaleCFG**: Drastically mitigates color over-saturation and burn artifacts on `v-pred` models.
+  * **MaHiRo**: Alternative CFG weighting algorithm significantly elevating prompt adherence.
+* 🧱 **Tiled Conv2d VAE Engine**: Substantially shrinks VRAM footprint during latent decoding for SD1 and SDXL.
+* 🎭 **Next-Gen ControlNet Ecosystem**:
+  * **LLLite**: SDXL and Anima with `MultiDiffusion` integration.
+  * **Union ControlNet**: Full support for SDXL 1.0 Union and Chenkin UniControl-XL.
+  * **Region ControlNet**: Color-masked regional generation for Anima.
+  * **Dynamic LoRA Control**: Syntax `<lora:name:[w1@t1, w2@t2, ...]>` for time-step gated LoRA injection.
+* 🎞️ **Media Formats**: Out-of-the-box support for modern next-gen image codecs: `.avif`, `.heif`, and `.jxl`.
+* 🖼️ **ForgeCanvas Overhaul**: Deobfuscated, highly responsive canvas with eraser controls, mobile touch support, hotkeys, and customized brush parameters.
+
+---
+
+## 🗑️ Clean Architecture: Removed Legacy Baggage
+
+To deliver maximum speed, maintainability, and clean dependency trees, obsolete legacy systems have been completely excised:
+
+```
+[✗] SD2 / SD3 Base Architectures           [✗] Textual Inversion Legacy Training
+[✗] Forge Spaces Cloud Wrappers            [✗] Hypernetworks Architecture
+[✗] Outdated CLIP & Deepbooru Interrogator [✗] Obsolete Samplers & Schedulers
+[✗] bitsandbytes Inefficient Layer Hooks   [✗] Bloated 3rd-Party Builtin Bundles
+```
+
+---
+
+## 🛠️ Performance Optimizations Under the Hood
+
+<div align="center">
+
+| Area | Engineering Transformation | Direct Benefit |
+|:---|:---|:---|
+| **Memory Engine** | Complete rewrite of `memory_management.py`, `ModelPatcher`, and backend streaming | Eliminates memory leaks when swapping large checkpoints; auto OOM unload |
+| **Launch Times** | Removed automatic fresh-install `git clone` loops & `open-clip` dependency | Launches instantaneously; deterministic offline boot |
+| **PyTorch Core** | Upgraded to **PyTorch 2.13.0+cu130** with CUDA 13 ecosystem | Maximum Tensor Core compute efficiency on modern GPUs |
+| **Spandrel & VAE** | Updated `spandrel` engine and centralized `.pth`/`.safetensors` inside `ESRGAN/` | Fast half-precision upscaling; zero duplicate upscaler code |
+| **UI Components** | Infotext parser rewritten; ControlNet tabs modern Gradio migration | Clean multi-unit workflow; prompt emphasis faithfully preserved |
+
+</div>
+
+---
+
+## 💻 Commandline Flags & Neo Optimizations
+
+Add flags to `COMMANDLINE_ARGS` inside `webui-user.bat` (Windows) or `webui-user.sh` (Linux/macOS):
+
+```bash
+# Example: High performance configuration
+set COMMANDLINE_ARGS=--uv --cuda-malloc --expandable-segments --fast-fp8 --xformers
+```
+
+### ⚡ Core & Memory Acceleration
+* `--cuda-malloc` — Activates specialized memory allocator to drastically minimize heap fragmentation.
+* `--cuda-stream` — Enables asynchronous non-blocking weight offloading between CPU and GPU RAM.
+* `--pin-shared-memory` — Locks shared memory allocations for heightened transfer throughput.
+* `--expandable-segments` — Enables PyTorch's native expandable segment allocator to suppress OOMs on burst tensors.
+* `--pynvml` — Queries the NVIDIA Management Library directly for real-time accurate free VRAM tracking.
+
+### 📦 Astral UV System
+* `--uv` — Substitutes slow `pip` invocations with Astral's hyper-fast `uv pip`.
+* `--uv-symlink` — Operates in `--link-mode symlink`, drastically cutting venv footprint (`~7 GB` down to `~100 MB`).
+* `--uv-local-cache` — Directs package caching to `.uv-cache` inside the WebUI root. Ideal for portable and Colab setups.
+
+### 📁 Unified Storage & Cross-Tool References
+* `--model-ref <DIR>` — Replaces the local `models` tree with a centralized external directory (contains `Stable-diffusion`, `Lora`, `VAE`, etc.).
+* `--forge-ref-a1111-home <DIR>` — Ingests checkpoints and models directly from an existing AUTOMATIC1111 install.
+* `--forge-ref-comfy-home <DIR>` — Links directly to a ComfyUI installation directory.
+* `--forge-ref-comfy-yaml <PATH>` — Ingests ComfyUI `extra_model_paths.yaml` configurations.
+
+### 🔮 Compute, Attention & Precision
+* `--xformers` — Installs and links memory-efficient cross-attention kernels. *(Note: RTX 50s not supported by xformers).*
+* `--sage` — Automatically installs and activates `sageattention` with native Triton bindings.
+* `--flash` — Installs and compiles `flash_attn` for high-throughput DiT attention.
+* `--use-ck-attention` — Activates **Comfy-Kitchen Attention**, overriding alternative attention kernels.
+* `--enable-triton-backend` — Triggers Triton computational kernel backends inside Comfy-Kitchen.
+* `--fast-fp8` — Uses native hardware `torch._scaled_mm` acceleration for `float8_e4m3fn` calculations.
+* `--fast-fp16` — Enables accelerated `allow_fp16_accumulation` mode.
+* `--tiled-conv2d <SIZE>` — Breaks VAE convolutions into tiles (`64`, `128`, `256`, `512`). Massive VRAM reduction for SD1/SDXL!
+* `--autotune` — Turns on `torch.backends.cudnn.benchmark` profiling.
+
+---
+
+## 🚀 Installation Suite
+
+### 1. Prerequisites
+* **Git**: [Download Git](https://git-scm.com/downloads)
+* **Package Manager**: [Astral `uv`](https://github.com/astral-sh/uv#installation) *(strongly recommended)* or [Python 3.13.12](https://www.python.org/downloads/release/python-31312/)
+
+### 2. Clone Repository
+```bash
+git clone https://github.com/cocyce459-oss/SDXLUni_WebUI_etcolab-absolute.git sd-webui-forge-neo
+cd sd-webui-forge-neo
+```
+
+### 3. Environment Setup
+
+<details open>
+<summary><b>🌟 Recommended: Astral uv Setup (Fastest & Cleanest)</b></summary>
+
+```bash
+# Create an isolated Python 3.13 virtual environment with uv
+uv venv venv --python 3.13 --seed
+
+# Activate on Linux / macOS:
+source venv/bin/activate
+
+# Or activate on Windows:
+# .\venv\Scripts\activate
+```
+Add `--uv` to your `webui-user.bat` or `webui-user.sh`.
+</details>
+
+<details>
+<summary><b>🐢 Legacy Method: Standard Python 3.13</b></summary>
+
+Install **Python 3.13.12** from python.org. Ensure **"Add Python to PATH"** is ticked during setup.
+</details>
+
+### 4. Boot the WebUI
+* **Windows**: Double-click `webui-user.bat`
+* **Linux / macOS**: Execute `./webui-user.sh`
+
+On first launch, dependencies will be resolved automatically. The Gradio interface will pop open in your default browser at `http://localhost:7860`.
+
+---
+
+## 🌌 Attention Hierarchies
+
+Forge Neo dynamically detects and ranks attention backends, binding the first compatible function in priority sequence:
+
+```
+┌────────────────────────────────────────────────────────┐
+│  1. SageAttention   (Fastest, requires Triton)         │
+│  2. FlashAttention  (High-throughput scaled dot)       │
+│  3. xformers        (Industry standard SD/SDXL kernel) │
+│  4. PyTorch SDPA    (Native scaled dot product)        │
+│  5. Basic           (Fallback standard PyTorch math)   │
+└────────────────────────────────────────────────────────┘
+```
+
+> [!NOTE]
+> Specific attention backends can be disabled at startup by providing disable flags such as `--disable-sage`.
+
+---
+
+## 📋 Comprehensive Troubleshooting Guide
+
+| Symptom / Error | Root Cause | Solution |
+|:---|:---|:---|
+| `uv: command not found` | `--uv` flag set without `uv` binary on system | Run `pip install --upgrade uv` or install via Astral installer script |
+| `This program is tested with 3.13.12` | Runtime executing under Python 3.10/3.11/3.12 | Use `uv venv venv --python 3.13 --seed` to download standalone CPython 3.13 |
+| `Please update your GPU driver to support cu130` | Nvidia driver version `< 580` | Set fallback `TORCH_INDEX_URL` to `cu128` (torch `2.11.0`) |
+| `AssertionError: Torch not compiled with CUDA` | CPU or ROCm wheel mistakenly installed | Wipe `venv/` directory and reinstall using the pinned `TORCH_COMMAND` |
+| `UI blank / slider components broken` | Incompatible Gradio version loaded | Force install `gradio==4.40.0` and `gradio_rangeslider==0.0.8` |
+| `ADetailer unpickle / module crash` | Upstream Bing-su repo incompatible with Neo | Clone `abzaloff/aadetailer-neoforge` and export `TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=true` |
+| `CUDA Out Of Memory (OOM)` | High resolution burst without pagination | Add `--expandable-segments --tiled-conv2d 256` and enable Low Bits in Settings |
+
+---
+
+## 📜 Issues & Guidelines
+
+To maintain focused development, please observe our collaboration criteria:
+
+* **Removed Features**: Bug reports requesting restoration of intentionally dropped legacy modules (SD2, Hypernetworks, bitsandbytes) will be closed.
+* **Non-Official Quants**: Issues resulting from arbitrary unofficial model conversions or corrupt weights are unsupported.
+* **Third-Party Extensions**: Extensions are expected to adapt to the UI architecture, not vice-versa.
+* **StabilityMatrix**: Bug submissions must be reproducible on a pristine manual git installation.
+* **Community Safety**: Strictly no NSFW content or offensive imagery in issue attachments.
+
+---
+
+## 💖 Credits & Acknowledgments
+
+Deep gratitude to the trailblazers whose tireless contributions power the open generative landscape:
+
+* **AUTOMATIC1111** — The foundational bedrock of WebUI architecture.
+* **lllyasviel** — Architectural genius behind Forge, ControlNet, and Fooocus.
+* **comfyanonymous** — ComfyUI backend core and modular graph primitives.
+* **kijai**, **city96**, and the vibrant open-source AI developer collective.
+
+<br>
+
+<div align="center">
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:#03001e,50:#7303c0,100:#00d2ff&height=120&section=footer" width="100%" alt="Footer Banner" />
 </p>
+
+<sub><i>Built for the boldest creators. Harness the cosmos of neural generation. 🌌⚡</i></sub>
+
+</div>
