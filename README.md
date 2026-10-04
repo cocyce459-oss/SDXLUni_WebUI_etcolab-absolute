@@ -4,7 +4,7 @@
 ### ⚡ *Next-Generation High-Performance Neural Synthesis Engine for Colab & Local Silicon* ⚡
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:#03001e,25:#7303c0,50:#ec38bc,75:#00d2ff,100:#3a7bd5&height=220&section=header&text=NEO%20✦%20FORGE%20ENGINE&fontSize=42&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Starry%20Night%20Cyberpunk%20Architecture%20%7C%20SDXL%20%26%20Modern%20DiT%20Workflows&descSize=17&descAlignY=62&descAlign=50" width="100%" alt="Header Banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:#03001e,25:#7303c0,50:#ec38bc,75:#00d2ff,100:#3a7bd5&height=220&section=header&text=NEO%20✦%20FORGE%20ENGINE%20%7C%20SDXL%20%26%20MODERN%20DIFFUSION&fontSize=42&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Starry%20Night%20Cyberpunk%20Architecture%20%7C%20SDXL%20%26%20Modern%20DiT%20Workflows&descSize=17&descAlignY=62&descAlign=50" width="100%" alt="Header Banner" />
 </p>
 
 <!-- Star Badges Cycling through Red, Orange, White, Cyan, and Blue -->
@@ -49,10 +49,10 @@
 <tr>
 <td bgcolor="#050515" style="border-left: 4px solid #00f5ff; border-radius: 8px; padding: 20px 26px;">
 
-> ❝ **Stable Diffusion WebUI Forge** is built on the shoulders of the legends who paved our road, crafted upon the timeless bedrock of AUTOMATIC1111’s interface. Our quest has always been simple: lift the burdens from your hardware, eliminate VRAM anxiety, unlock blazing inference speeds, and create an inviting playground for the world's most brilliant neural architectures.
-> 
-> Much like *Minecraft Forge* unified a sprawling world of creative imagination, this workspace exists so you can create without artificial ceilings, memory ceilings, or boundaries. Let’s forge something extraordinary together. ❞
-> 
+> ❝ **Stable Diffusion WebUI Forge** is built on the shoulders of the legends who paved our road, crafted upon the timeless bedrock of AUTOMATIC1111’s interface. Our quest has always been simple: lift the burden from your hardware, eliminate VRAM anxiety, unlock blazing inference speeds, and create an inviting playground for the world’s most brilliant neural architectures.
+>
+> Much like *Minecraft Forge* unified a sprawling world of creative imagination, this workspace exists so you can create without artificial ceilings, memory ceilings, or boundaries. Let’s forge something extraordinary together.
+>
 > <p align="right"><b>— lllyasviel</b> <i>(paraphrased with deepest respect)</i></p>
 
 </td>
@@ -69,12 +69,12 @@
 
 Whether you are here with an ultra-cluster of enterprise GPUs, an aging laptop with a humble gaming card, or a free-tier Google Colab session running on pure determination: **you belong here.**
 
-Open source isn't a race to hoard secrets—it's an invitation to pass the torch forward. When upstream upstreamed its rest, **Forge Neo** stepped up not to outshine what came before, but to lovingly nurture the flame. Powered by modern **Gradio 4.40.0**, isolated **Python 3.13**, and tailored for everything from battle-tested **SDXL** to bleeding-edge Diffusion Transformers (DiTs) like **FLUX.2-Klein**, **Wan 2.2**, and **Qwen-Image**, Neo exists to turn every ounce of your VRAM into sheer creative velocity.
+Open source isn't a race to hoard secrets—it’s an invitation to pass the torch forward. When upstream paused, **Forge Neo** stepped up not to outshine what came before, but to lovingly nurture the flame. Powered by modern **Gradio 4.40.0**, isolated **Python 3.13**, and tailored for everything from battle-tested **SDXL** to bleeding-edge **DiT** workflows like **FLUX.2-Klein**, **Wan 2.2**, and **Qwen-Image**, Neo exists to turn every ounce of your VRAM into sheer creative velocity.
 
 No gatekeeping. No convoluted dependency spirals. Just pure, unadulterated neural synthesis.
 
 > [!TIP]
-> 🚀 **Short on time or low on local VRAM?** We built a turnkey, self-healing pipeline ready for cloud hardware. Jump straight into the verified **[Google Colab Absolute SDXL Suite](#-google-colab-absolute-zero-to-hero)** and start rendering in under five minutes!
+> 🚀 **Short on time or low on local VRAM?** We built a turnkey, self-healing pipeline ready for cloud hardware. Jump straight into the verified **[Google Colab Absolute SDXL Suite](#-google-colab-absolute-zero-to-hero)** and start rendering in under five minutes.
 
 ---
 
@@ -94,7 +94,7 @@ Our internal telemetry, acceleration pathways, and system architecture are calib
 
 ## ⚡ Google Colab: Absolute Zero-to-Hero
 
-We believe high-fidelity generative art should never be locked behind a four-digit GPU paywall. We poured hours into testing, pinning, and hardening our automated notebook so you can walk onto Colab (`T4`, `L4`, or `A100`) and watch everything *just click into place*.
+We believe high-fidelity generative art should never be locked behind a four-digit GPU paywall. We poured hours into testing, pinning, and hardening our automated notebook so you can walk onto Colab (`T4`, `L4`, or `A100`) and watch everything just click into place.
 
 <div align="center">
 
@@ -107,22 +107,22 @@ We believe high-fidelity generative art should never be locked behind a four-dig
 
 We meticulously measured the transition between branches. Forge Neo leaves dependency rot in the rearview mirror so you can focus on pure generation:
 
-```
-┌──────────────────────────────────────┬──────────────────────────────────────┐
-│        FORGE CLASSIC (LEGACY)        │          FORGE NEO (ACTIVE)          │
-├──────────────────────────────────────┼──────────────────────────────────────┤
-│ Python 3.11.9                        │ Python 3.13.12 (Astral uv isolated)  │
-│ Gradio 3.43.2                        │ Gradio 4.40.0 + RangeSlider support  │
-│ PyTorch 2.10.0+cu130                 │ PyTorch 2.13.0+cu130 (cu128 capable) │
-│ xformers 0.0.34 (rigid pin)          │ xformers 0.0.35 (torch>=2.10 ready)  │
-│ numpy 1.26.4 / pydantic 1.10.22      │ numpy 2.3.5 / pydantic 2.10.6        │
-│ Restricted to SD1.5 & SDXL           │ SDXL, FLUX, Wan, Qwen, Anima, etc.   │
-└──────────────────────────────────────┴──────────────────────────────────────┘
+```text
+┌──────────────────────────────────────┬──────────────────────────────┐
+│        FORGE CLASSIC (LEGACY)        │       FORGE NEO (ACTIVE)     │
+├──────────────────────────────────────┼──────────────────────────────┤
+│ Python 3.11.9                        │ Python 3.13.12 (Astral uv)  │
+│ Gradio 3.43.2                        │ Gradio 4.40.0 + RangeSlider │
+│ PyTorch 2.10.0+cu130                  │ PyTorch 2.13.0+cu130        │
+│ xformers 0.0.34 (rigid pin)          │ xformers 0.0.35             │
+│ numpy 1.26.4 / pydantic 1.10.22      │ numpy 2.3.5 / pydantic 2.10.6 │
+│ Restricted to SD1.5 & SDXL           │ SDXL, FLUX, Wan, Qwen, Anima, etc. │
+└──────────────────────────────────────┴──────────────────────────────┘
 ```
 
 ### 🛰️ Fast Pipeline Setup (Colab / Clean Linux)
 
-Treat yourself to an install process that takes seconds rather than coffee breaks. Copy, paste, and let Astral's engine build your world:
+Treat yourself to an install process that takes seconds rather than coffee breaks. Copy, paste, and let Astral’s engine build your world:
 
 ```bash
 # 1. Equip the hyper-fast Astral UV package manager
@@ -148,14 +148,14 @@ export COMMANDLINE_ARGS="--no-download-sd-model --xformers --listen --port 7860 
 ```
 
 > [!IMPORTANT]
-> - **ADetailer Harmony**: Legacy ADetailer scripts will choke on Gradio 4. Simply use the modern fork [`abzaloff/aadetailer-neoforge`](https://github.com/abzaloff/aadetailer-neoforge) and pair it with **YOLO** models (MediaPipe hasn't shipped cp313 wheels yet).
-> - **Kindness to 15GB T4 GPUs**: When navigating free-tier Colab cards, give your VRAM breathing room! Keep Hires.fix bypassed for initial base SDXL passes, keep `--expandable-segments` engaged, and let your text encoder take refuge on CPU when chaining heavy LoRAs.
+> - **ADetailer Harmony**: Legacy ADetailer scripts will choke on Gradio 4. Simply use the modern fork [`abzaloff/aadetailer-neoforge`](https://github.com/abzaloff/aadetailer-neoforge) and pair it with **YOLO** models (MediaPipe isn’t shipping cp313 wheels yet).
+> - **Kindness to 15GB T4 GPUs**: When navigating free-tier Colab cards, give your VRAM breathing room. Keep `Hires.fix` bypassed for initial base SDXL passes, keep `--expandable-segments` engaged, and let the text encoder stay on CPU when chaining heavy LoRAs.
 
 ---
 
 ## 🌌 Features Matrix [October Edition]
 
-> *Neo inherits the battle-tested, beloved interface patterns of [AUTOMATIC1111 WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) while quietly replacing the engine with a silent, hyper-efficient electric drivetrain.*
+> *Neo inherits the battle-tested, beloved interface patterns of [AUTOMATIC1111 WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) while quietly replacing the engine with a silent, hyper-efficient electronic drivetrain.*
 
 ### 🐬 Next-Gen Generative Models
 
@@ -190,7 +190,7 @@ export COMMANDLINE_ARGS="--no-download-sd-model --xformers --listen --port 7860 
 * 📦 **Deep Quantization Support**:
   * `fp4mixed` • `fp8mixed` • `mxfp8` • `nvfp4` • `fp8_scaled` • `int8_convrot` • `convrot_w4a4` • `asym_w4a8_int8` • `w6a8_int8`.
 * 🚀 **Cutting-Edge Decoders & VAEs**: Out-of-the-box synergy with [Flux.2-Small-Decoder](https://huggingface.co/black-forest-labs/FLUX.2-small-decoder) and [Qwen2D VAE](https://huggingface.co/Anzhc/Qwen2D-VAE).
-* 🖼️ **Visionary & Exotic Research Models**: First-class handling for [Lumina-Image-2.0](https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0) (`Neta-Lumina` / `NetaYume-Lumina`), [Chroma1-HD](https://huggingface.co/lodestones/Chroma1-HD), and legacy Nunchaku (`SVDQ`).
+* 🖼️ **Visionary & Exotic Research Models**: First-class handling for [Lumina-Image-2.0](https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0) (`Neta-Lumina` / `NetaYume-Lumina`), [Chroma1-HD](https://huggingface.co/lodestones/Chroma1-HD), and similar forward-looking families.
 
 </details>
 
@@ -217,15 +217,16 @@ export COMMANDLINE_ARGS="--no-download-sd-model --xformers --listen --port 7860 
 
 ## 🍃 Clean Architecture: Gracefully Leaving the Past Behind
 
-Great engineering is as much about what you choose *not* to build as what you include. To keep Neo feather-light, lightning-quick, and free of mysterious dependency crashes, we respectfully parted ways with obsolete legacy systems:
+Great engineering is as much about what you choose *not* to build as what you include. To keep Neo feather-light, lightning-quick, and free of mysterious dependency crashes, we respectfully part ways with legacy baggage:
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
+```text
+┌──────────────────────────────────────────────────────────────────┐
 │  [✓] Excised SD2 / SD3 Base Complexity   [✓] Dropped Hypernetworks     │
 │  [✓] Replaced Legacy CLIP Interrogators  [✓] Retired Old Samplers      │
 │  [✓] Cleaned Out bitsandbytes Hooks      [✓] Removed Bloated Bundles   │
-└────────────────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────────┘
 ```
+
 *By shedding outdated historical layers, the spaceship can finally reach escape velocity.*
 
 ---
@@ -281,7 +282,7 @@ set COMMANDLINE_ARGS=--uv --cuda-malloc --expandable-segments --fast-fp8 --xform
 * `--enable-triton-backend` — Enables native Triton compute acceleration within Comfy-Kitchen.
 * `--fast-fp8` — Unlocks hardware-native `torch._scaled_mm` calculations for fast `float8_e4m3fn` workloads.
 * `--fast-fp16` — Engages low-latency `allow_fp16_accumulation` mode.
-* `--tiled-conv2d <SIZE>` — Chops VAE processing into small spatial tiles (`64`, `128`, `256`, `512`). A genuine lifesaver for rendering huge SD1/SDXL images on modest cards!
+* `--tiled-conv2d <SIZE>` — Chops VAE processing into small spatial tiles (`64`, `128`, `256`, `512`). A genuine lifesaver for rendering huge SD1/SDXL images on modest cards.
 * `--autotune` — Activates `torch.backends.cudnn.benchmark` to dynamically find the fastest algorithms for your specific silicon.
 
 ---
@@ -326,7 +327,7 @@ Download and install **Python 3.13.12** directly from python.org. Be sure to che
 * **Windows**: Double-click `webui-user.bat`
 * **Linux / macOS**: Run `./webui-user.sh` in your terminal
 
-Grab a sip of water. On initial boot, the engine will resolve and configure all backend packages automatically. Once ready, your browser will open to `http://localhost:7860`. Welcome to your new creative home.
+Grab a sip of water. On initial boot, the engine will resolve and configure all backend packages automatically. Once ready, your browser will open to `http://localhost:7860`. Welcome to your new creative cockpit.
 
 ---
 
@@ -334,7 +335,7 @@ Grab a sip of water. On initial boot, the engine will resolve and configure all 
 
 Forge Neo doesn’t play favorites; it honors your hardware. At startup, the engine evaluates your environment and dynamically assigns the fastest viable attention backend in priority order:
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────┐
 │  1. ⚡ SageAttention   (Peak throughput; Triton accelerated)  │
 │  2. ⚡ FlashAttention  (Optimized scaled dot-product)        │
@@ -349,19 +350,19 @@ Forge Neo doesn’t play favorites; it honors your hardware. At startup, the eng
 
 ---
 
-## 🧭 Troubleshooting: Don't Panic!
+## 🧭 Troubleshooting: Don’t Panic!
 
 Hardware quirks happen to the best of us. When an unexpected error shows up, take a breath—here are the simple fixes for the most common hiccups:
 
 | What You Might See | Why It Happens | How to Glide Right Past It |
 |:---|:---|:---|
 | `uv: command not found` | The `--uv` flag was supplied, but your system hasn't installed the `uv` tool yet. | Run `pip install --upgrade uv` or install it via Astral's official installer script. |
-| `This program is tested with 3.13.12` | Your terminal defaulted to an older system Python (3.10/3.11/3.12). | Run `uv venv venv --python 3.13 --seed` to automatically pull down an isolated CPython 3.13. |
-| `Please update your GPU driver to support cu130` | Your NVIDIA graphics drivers are on an older branch (`< 580`). | Update your GPU drivers, or safely target CUDA 12.8 by setting `TORCH_INDEX_URL` to `cu128`. |
+| `This program is tested with 3.13.12` | Your terminal defaulted to an older system Python (3.10/3.11/3.12). | Run `uv venv venv --python 3.13 --seed` to automatically pull down an isolated CPython 3.13 environment. |
+| `Please update your GPU driver to support cu130` | Your NVIDIA graphics drivers are on an older branch (`< 580`). | Update your GPU drivers, or safely target CUDA 12.8 by setting `TORCH_INDEX_URL` to the `cu128` wheel set. |
 | `AssertionError: Torch not compiled with CUDA` | A CPU-only wheel accidentally slipped into the environment. | Clear your `venv/` folder and relaunch using our verified `TORCH_COMMAND`. |
 | `UI blank / slider components broken` | Gradio experienced a version collision during extension installs. | Re-install exact pinned versions: `pip install gradio==4.40.0 gradio_rangeslider==0.0.8`. |
 | `ADetailer unpickle / module crash` | Upstream legacy ADetailer isn't compatible with Gradio 4 yet. | Use the updated fork `abzaloff/aadetailer-neoforge` and run with `TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=true`. |
-| `CUDA Out Of Memory (OOM)` | You pushed a massive resolution batch through a narrow VRAM corridor! | Add `--expandable-segments --tiled-conv2d 256` to your args and enable Low Bits in Settings. |
+| `CUDA Out Of Memory (OOM)` | You pushed a massive resolution batch through a narrow VRAM corridor. | Add `--expandable-segments --tiled-conv2d 256` to your args and enable Low Bits in Settings. |
 
 ---
 
@@ -372,7 +373,7 @@ This repository is maintained with care, focus, and a deep appreciation for ever
 * **Embrace the Lean Design**: Requests to re-bloat the codebase with retired legacy features (SD2, Hypernetworks, ancient unmaintained hooks) will be politely closed.
 * **Stick to Official Weights**: We cannot effectively troubleshoot issues arising from broken, non-standard community weight conversions or truncated files.
 * **Third-Party Extensions**: While we love extension builders, extensions must adapt to modern WebUI standards rather than requesting regressions to older architectures.
-* **Keep Issues Clean & Reproducible**: When submitting a bug, please ensure you can reproduce it on a pristine git clone, and help us help you by sharing your full launch arguments and environment info.
+* **Keep Issues Clean & Reproducible**: When submitting a bug, please ensure you can reproduce it on a pristine git clone, and help us help you by sharing your full launch arguments and environment details.
 * **Respectful Collaboration**: We maintain an environment where everyone feels safe and inspired. Absolutely no offensive or NSFW generation samples in public bug threads.
 
 ---
@@ -387,6 +388,17 @@ Every great tool is a mosaic of sleepless nights, shared wisdom, and open-source
 * **kijai**, **city96**, and the countless tireless open-source tinkerers who quietly share their discoveries with the world every single day.
 
 <br>
+
+## 🧠 README Evolution & Attribution
+
+This README was not written in a single pass—it was shaped through a layered creative process:
+
+1. **Arena (Agent Mode)** — initial technical structure, narrative scaffolding, and overall development outline.
+2. **Grok** — attempted paraphrasing and stylistic elevation, but the wording did not fully match the desired blend of natural multilingual cadence and polished readability.
+3. **Gemini 3.8 Flash (Google AI Studio, default settings)** — final paraphrasing pass using the prompt: *“transform this README from top to bottom into a masterpiece of emotional resonance, crafted to greet every passerby with witty charm, genuine warmth, and a soaring professionalism so inspiring it dissolves any hint of jealousy.”*
+4. **Additional paraphrasing pass via Gemini 3.5 Flash-Lite AI Paraphraser** — further smoothing for flow, rhythm, and emotional clarity.
+
+This final version reflects a hybrid of technical precision, warm human tone, and a polished open-source storytelling style—built to welcome newcomers while still respecting the engineering depth behind the project.
 
 <div align="center">
 
