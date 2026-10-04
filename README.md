@@ -1,7 +1,7 @@
 <div align="center">
 
 # 🌌 ✦ STABLE DIFFUSION WEBUI FORGE — NEO ✦ 🌌
-### ⚡ *Next-Generation High-Performance Neural Synthesis Engine* ⚡
+### ⚡ *Next-Generation High-Performance Neural Synthesis Engine within Colab environment* ⚡
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:#03001e,25:#7303c0,50:#ec38bc,75:#00d2ff,100:#3a7bd5&height=220&section=header&text=NEO%20✦%20FORGE%20ENGINE&fontSize=42&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Starry%20Night%20Cyberpunk%20Architecture%20%7C%20SDXL%20%26%20Modern%20DiT%20Workflows&descSize=17&descAlignY=62&descAlign=50" width="100%" alt="Header Banner" />
